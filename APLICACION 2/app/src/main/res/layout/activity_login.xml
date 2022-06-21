@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.rosales.adoptame.ui.login.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/app_logo"
+            android:layout_width="205dp"
+            android:layout_height="218dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/adopcion"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_border_color="#333333"
+            app:riv_border_width="2dip"
+            app:riv_corner_radius="30dp"
+            app:riv_mutate_background="true"
+            app:riv_tile_mode="repeat" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/usernameTextField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_gap"
+            android:layout_marginTop="@dimen/default_gap"
+            android:layout_marginEnd="@dimen/default_gap"
+            android:hint="username"
+            app:layout_constraintEnd_toEndOf="@+id/app_logo"
+            app:layout_constraintStart_toStartOf="@+id/app_logo"
+            app:layout_constraintTop_toBottomOf="@+id/app_logo">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={viewModel.userField}"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordTextField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_gap"
+            android:layout_marginTop="@dimen/default_gap"
+            android:layout_marginEnd="@dimen/default_gap"
+            android:hint="password"
+            app:layout_constraintEnd_toEndOf="@+id/usernameTextField"
+            app:layout_constraintStart_toStartOf="@+id/usernameTextField"
+            app:layout_constraintTop_toBottomOf="@+id/usernameTextField">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={viewModel.passwordField}"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/buttonSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_gap"
+            android:layout_marginTop="@dimen/default_gap"
+            android:layout_marginEnd="@dimen/default_gap"
+            android:onClick="@{()-> viewModel.onLogin()}"
+            android:text="Sign In"
+            app:layout_constraintEnd_toEndOf="@+id/passwordTextField"
+            app:layout_constraintStart_toStartOf="@+id/passwordTextField"
+            app:layout_constraintTop_toBottomOf="@+id/passwordTextField" />
+
+        <TextView
+            android:id="@+id/newUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_gap"
+            android:text="New User?"
+            app:layout_constraintEnd_toEndOf="@+id/buttonSignIn"
+            app:layout_constraintStart_toStartOf="@+id/buttonSignIn"
+            app:layout_constraintTop_toBottomOf="@+id/buttonSignIn" />
+
+        <Button
+            android:id="@+id/signUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_gap"
+            android:text="Sign up"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            app:layout_constraintStart_toEndOf="@+id/newUser"
+            app:layout_constraintTop_toBottomOf="@+id/buttonSignIn" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_gap"
+            android:text="Having trouble with your account"
+            app:layout_constraintEnd_toEndOf="@+id/buttonSignIn"
+            app:layout_constraintStart_toStartOf="@+id/buttonSignIn"
+            app:layout_constraintTop_toBottomOf="@+id/newUser" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

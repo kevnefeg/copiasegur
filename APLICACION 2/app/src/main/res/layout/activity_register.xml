@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.rosales.adoptame.ui.register.RegisterViewModel" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/signUpTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_gap"
+        android:text="Sign Up"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/app_logo"
+        android:layout_width="126dp"
+        android:layout_height="122dp"
+        android:layout_marginTop="@dimen/default_gap"
+        android:scaleType="fitCenter"
+        android:src="@drawable/adopcion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signUpTextView" />
+
+    <TextView
+        android:id="@+id/uploadPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_gap"
+        android:text="Anexar foto"
+        android:textColor="#3AB0FF"
+        app:layout_constraintEnd_toEndOf="@+id/app_logo"
+        app:layout_constraintStart_toStartOf="@+id/app_logo"
+        app:layout_constraintTop_toBottomOf="@+id/app_logo" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailTextField"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_gap"
+        android:layout_marginTop="@dimen/small_gap"
+        android:layout_marginEnd="@dimen/default_gap"
+        android:hint="email"
+        app:layout_constraintEnd_toEndOf="@+id/uploadPhoto"
+        app:layout_constraintStart_toStartOf="@+id/uploadPhoto"
+        app:layout_constraintTop_toBottomOf="@+id/uploadPhoto">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:text="@={viewModel.emailField}"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/fullnameTextView"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_gap"
+        android:layout_marginTop="@dimen/small_gap"
+        android:layout_marginEnd="@dimen/default_gap"
+        android:hint="fullname"
+        app:layout_constraintEnd_toEndOf="@+id/uploadPhoto"
+        app:layout_constraintStart_toStartOf="@+id/uploadPhoto"
+        app:layout_constraintTop_toBottomOf="@+id/emailTextField">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:text="@={viewModel.fullnameField}"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordTextField"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_gap"
+        android:layout_marginTop="@dimen/small_gap"
+        android:layout_marginEnd="@dimen/default_gap"
+        android:hint="password"
+        app:layout_constraintEnd_toEndOf="@+id/uploadPhoto"
+        app:layout_constraintStart_toStartOf="@+id/uploadPhoto"
+        app:layout_constraintTop_toBottomOf="@+id/fullnameTextView">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:text="@={viewModel.passwordField}"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/phoneTextView"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_gap"
+        android:layout_marginTop="@dimen/small_gap"
+        android:layout_marginEnd="@dimen/default_gap"
+        android:hint="phonenumber"
+        app:layout_constraintEnd_toEndOf="@+id/uploadPhoto"
+        app:layout_constraintStart_toStartOf="@+id/uploadPhoto"
+        app:layout_constraintTop_toBottomOf="@+id/passwordTextField">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:text="@={viewModel.phoneNumber}"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/buttonSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_gap"
+        android:layout_marginTop="@dimen/default_gap"
+
+        android:text="Sign up"
+        android:layout_marginEnd="@dimen/default_gap"
+        app:layout_constraintEnd_toEndOf="@+id/passwordTextField"
+        app:layout_constraintStart_toStartOf="@+id/passwordTextField"
+        app:layout_constraintTop_toBottomOf="@+id/phoneTextView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
